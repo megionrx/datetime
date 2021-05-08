@@ -4,15 +4,15 @@ stages:
 
 variables:
   version: "2.0"
-  image: "megionrx/datetime:${version}"
+  image: "megionrx/datetime"
 
 docker-job:
   stage: docker
   script:
-    - docker build --build-arg version="${version}" -t datetime .
-    - docker push "${image}"
+    - docker build --build-arg version="${version}" -t "${image}:${version}" .
+    - docker push "${image}:${version}"
 
 deploy-job:
   stage: deploy
   script:
-    - helm upgrade --install datetime --set image="${image}" .
+    - helm upgrade --install datetime --set image="${image}:${version}" .
