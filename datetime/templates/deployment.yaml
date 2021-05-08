@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-deployment
+  name: datetime-deployment
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: MyApp
+      app: datetime
   template:
     metadata:
       labels:
-        app: MyApp
+        app: datetime
     spec:
       containers:
       - name: datetime
