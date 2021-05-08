@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: my-service
+  name: datetime-service
 spec:
   selector:
-    app: MyApp
+    app: datetime
   ports:
     - protocol: TCP
-      port: 80
+      port: 3000
       targetPort: 80
